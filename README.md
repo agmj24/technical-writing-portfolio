@@ -43,7 +43,7 @@ The samples show how I approach documentation planning, information architecture
 | [Maintenance Procedure](samples/asml-maintenance-procedures-sample.md) | Installation procedure sample |
 | [User Guide](samples/user-guide-sample.md) | User guide sample |
 | [Release Notes](samples/release-notes-sample.md) | Release notes sample |
-| [Markdown Style Guide](samples/markdown-style-guide-sample.md) | Markdown rules |
+| [Markdown Cheatsheet](samples/markdown-style-guide-sample.md) | Markdown rules |
 | [DITA Topic Types](samples/dita-topic-types-sample.md) | Dita topics |
 
 ---
