@@ -135,6 +135,7 @@ Always specify the language after the opening backticks.
 | age       | number | Age of the user  |
 
 Keep tables simple. Use them only for structured data.
+
 ---
 
 ## Blockquotes / Notes
