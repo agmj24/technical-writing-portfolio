@@ -6,105 +6,68 @@
 
 ---
 
-## 👋 About Me
+## Technical Writing Portfolio
 
-I'm a Technical Publications Engineer with 7+ years of professional experience, including 4+ years focused on technical writing and documentation for EDA (semiconductor design) and semiconductor hardware products. I currently write customer-facing documentation at **Synopsys** for chip design and verification tools, and previously documented semiconductor equipment for **ASML** products at Capgemini.
+Welcome to my technical writing portfolio.
 
-My work centers on taking complex, engineer-level information — command syntax, hardware configuration, release changes — and turning it into documentation that engineers and customers can actually use. I write in DITA XML with a content-reuse mindset, so documentation stays modular and scales across product releases instead of being rebuilt every time.
+This repository showcases documentation I've put together to demonstrate how I design, develop, and maintain technical content for engineering products. It reflects my experience across semiconductor (EDA) and hardware documentation, with examples covering command references, API documentation, hardware maintenance procedures, structured authoring, and content strategy.
 
-This repository is a sanitized sample of the kind of documentation I produce day to day: user guides, command references, release notes, and the structured-authoring approach behind them.
+The samples show how I approach documentation planning, information architecture, structured authoring, and modern docs-as-code practices, from a first draft through to something ready for a release.
 
-> **Note on samples:** Everything in `/samples` is either a genericized re-creation or a fictional example built to demonstrate structure, tone, and technique. No confidential, proprietary, or customer-facing content from Synopsys, Capgemini, ASML, or any employer is included.
-
----
-
-## 🧰 Core Skills
-
-**Documentation Types**
-User Guides · Command Reference Manuals · Release Notes · API Documentation · Online Help · What's New Content
-
-**Structured Authoring**
-DITA XML · XML · HTML · Markdown · Topic-Based Authoring · Content Reuse · Information Architecture
-
-**Content Strategy**
-Documentation Standards · Content Review · Quality Benchmarks · Modular Content Architecture
-
-**Tools**
-Oxygen XML Author · Arbortext Editor · Perforce · Git · Adobe Acrobat · MS Visio · Teamcenter · NX Visualization · Confluence · Jira · Draw.io · SharePoint · Snagit
-
-**Environments**
-Unix/Linux (direct tool invocation for validating documented workflows and capturing UI screenshots)
-
-**AI-Assisted Documentation**
-Microsoft Copilot · GitHub Copilot · Synopsys ChatGPT · Writer Assistant — used for authoring productivity, and (in prior roles) for evaluating and refining AI-generated technical content and prompts
-
-**Collaboration**
-Cross-functional coordination with Engineering, Product Management, QA, and Support · SME interviews · Global, distributed-team stakeholder management
+> **Disclaimer:**
+> Everything in this portfolio is either rebuilt from scratch or made up entirely, created only to demonstrate my process. None of it contains confidential or proprietary information from Synopsys, Capgemini, ASML, or any other employer.
 
 ---
 
-## 📁 Documentation Samples
+## 🚀 Professional Highlights
+
+- 7+ Years of Professional Experience, 4+ Focused on Technical Writing
+- End-to-End EDA Documentation (Synopsys)
+- Semiconductor Hardware Documentation (ASML Products via Capgemini)
+- DITA XML & Structured Authoring
+- API Documentation
+- Aviation Compliance & Technical Records Audit Experience
+- AI Tooling & Prompt Engineering
+- Docs-as-Code (Git, Markdown)
+- Documentation Standards & Quality Review
+- Cross-Functional & Global Stakeholder Collaboration
+
+---
+
+## Documentation Samples
 
 | Sample | Description | Skills Demonstrated |
 |---|---|---|
-| [Command Reference Manual](samples/command-reference-manual-sample.md) | Full command reference for a fictional EDA verification tool, modeled on the manuals I write at Synopsys | Command syntax documentation, topic-based structure, cross-referencing |
-| [API Documentation](samples/api-documentation-sample.md) | REST API reference for a fictional design-check service, including auth, endpoints, and error handling | Developer-focused writing, async workflow documentation, error reference tables |
-| [Equipment Maintenance Procedures](samples/asml-maintenance-procedures-sample.md) | Routing, installation, and de-installation procedures for a fictional hardware module | Procedural/safety-critical writing, hardware documentation |
-| [Markdown Style Guide](samples/markdown-style-guide-sample.md) | Docs-as-code writing conventions for a team moving off a CCMS and into Markdown + Git | Docs-as-code, Markdown, content governance |
-| [DITA Topic Types](samples/dita-topic-types-sample.md) | The same subject split across concept, task, and reference topics, with the underlying DITA XML shown | DITA XML, structured authoring, content reuse |
-
-I'm actively adding more sanitized samples to this repository — check back for updates.
-
----
-
-## 💼 Experience Highlights
-
-### Technical Publications Engineer — **Synopsys Inc.** *(Jan 2025 – Present)*
-- Own end-to-end customer-facing documentation — user guides, command reference manuals, release notes, What's New content, and online help — for EDA software used in chip design and verification.
-- Author in DITA XML with content-reuse methodologies to support modular, scalable documentation.
-- Validate documentation hands-on in a Unix/Linux environment by running the actual tools, capturing UI screenshots, and confirming documented commands and workflows before publishing.
-- Use Perforce and Git to manage documentation as part of the product release pipeline.
-- Apply Microsoft Copilot, GitHub Copilot, Writer Assistant, and Synopsys ChatGPT to speed up authoring and contribute to AI-driven documentation initiatives.
-
-### Freelance Technical Writer, Content Reviewer & Editor — **Mindrift by Toloka** *(Apr 2024 – Dec 2024)*
-- Wrote and edited technical content in YAML and HTML for structured-language projects.
-- Evaluated AI-generated technical responses for factual accuracy and reasoning quality, and performed prompt engineering and response ranking for LLM training projects.
-
-### Technical Writer & Prompt Engineer — **Spectrum Consultants (deputed for NVIDIA)** *(Jul 2023 – Mar 2024)*
-- Wrote and refined technical prompts and reference responses to improve AI model performance against technical writing standards for clarity and accuracy.
-- Reviewed AI-generated technical content for accuracy and completeness; performed data annotation/validation using Label Studio and CVAT.
-
-### Technical Writer — **Capgemini Technology Services** *(Nov 2021 – Jul 2023)*
-- Authored and maintained semiconductor hardware/software documentation for ASML products, covering equipment operation, maintenance, and configuration.
-- Extracted technical details directly from 3D models using NX Visualization and Teamcenter to produce accurate illustrations supporting written procedures.
-- Led documentation activities for pilot projects and implemented quality review processes.
-
-*Full role history, including earlier work in aviation technical records and compliance documentation, is available in my [resume](#) or on [LinkedIn](https://linkedin.com/in/aleena-george-a407b0165).*
+| [Command Reference Manual](samples/command-reference-manual-sample.md) | Full command reference for a fictional EDA verification tool | Command syntax documentation, topic-based structure |
+| [API Documentation](samples/api-documentation-sample.md) | REST API reference for a fictional design-check service | Developer-focused writing, async workflows, error handling |
+| [Equipment Maintenance Procedures](samples/asml-maintenance-procedures-sample.md) | Routing, installation, and de-installation for a fictional hardware module | Procedural and safety-critical writing, hardware documentation |
+| [User Guide](samples/user-guide-sample.md) | Getting-started guide for the same fictional verification tool | Onboarding content, task-based writing |
+| [Release Notes](samples/release-notes-sample.md) | Version release notes, including a breaking change and a known issue | Release documentation, prioritizing what matters most |
+| [Architecture Overview](samples/architecture-overview-sample.md) | High-level architecture and workflow for a fictional EDA verification platform | System-level explanation, component diagrams, audience-appropriate depth |
+| [DITA Map & Online Help Structure](samples/dita-map-and-olh-sample.md) | What a DITA map contains and how the same topics become online help | DITA XML, Oxygen XML Author, content reuse |
+| [Markdown Style Guide](samples/markdown-style-guide-sample.md) | Docs-as-code writing conventions for a team moving into Markdown and Git | Docs-as-code, Markdown, content governance |
+| [DITA Topic Types](samples/dita-topic-types-sample.md) | The same subject split across concept, task, and reference topics | DITA XML, structured authoring, content reuse |
+| [Prompt & Response Evaluation Guidelines](samples/prompt-response-evaluation-guidelines-sample.md) | Evaluation workflow for scoring AI assistant responses | AI/LLM documentation, evaluation criteria design |
+| [Writing Prompts Across Personas](samples/prompt-writing-personas-sample.md) | Prompt-writing techniques and personas for AI training data | Prompt engineering, persona-based writing |
 
 ---
 
-## 🎓 Education & Certifications
+## 🛠 Tools & Technologies
 
-**B.Tech, Aeronautical Engineering** — Mahatma Gandhi University, Kerala (2018)
+**Documentation**
+Oxygen XML Author • Arbortext Editor • DITA XML • Markdown
 
-- DITA XML
-- Document Development Life Cycle (DDLC)
-- Software Development Life Cycle (SDLC)
-- Getting Started with Power BI
+**Version Control & Publishing**
+Git • Perforce • Adobe Acrobat
 
----
+**Visual Documentation**
+Snagit • Draw.io • MS Visio • Teamcenter • NX Visualization
 
-## 🌱 Currently Exploring
+**Collaboration**
+Confluence • Jira • SharePoint
 
-- Deeper hands-on use of AI copilots inside structured-authoring workflows (DITA + AI-assisted drafting/review)
-- Applying prompt-evaluation experience from LLM projects back into documentation QA processes
+## Thank You
 
----
+Thanks for taking a look at my portfolio.
 
-## 📬 Contact
-
-- **Email:** galeena1996@gmail.com
-- **Phone:** +91 94007 08059
-- **LinkedIn:** [linkedin.com/in/aleena-george-a407b0165](https://linkedin.com/in/aleena-george-a407b0165)
-
-Open to Technical Writing / Technical Publications roles in EDA, semiconductor, and enterprise software documentation.
+I hope these samples give you a real sense of how I approach documentation, not just what topics I've written about. I'm adding to this as I go, so there should be more here over time.
