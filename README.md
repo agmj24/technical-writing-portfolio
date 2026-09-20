@@ -36,19 +36,15 @@ The samples show how I approach documentation planning, information architecture
 
 ## Documentation Samples
 
-| Sample | Description | Skills Demonstrated |
-|---|---|---|
-| [Command Reference Manual](samples/command-reference-manual-sample.md) (troff source) | Full command reference for a fictional EDA verification tool | Command syntax documentation, topic-based structure |
-| [API Documentation](samples/api-documentation-sample.md) | REST API reference for a fictional design-check service | Developer-focused writing, async workflows, error handling |
-| [Equipment Maintenance Procedures](samples/asml-maintenance-procedures-sample.md) | Routing, installation, and de-installation for a fictional hardware module | Procedural and safety-critical writing, hardware documentation |
-| [User Guide](samples/user-guide-sample.md) | Getting-started guide for the same fictional verification tool | Onboarding content, task-based writing |
-| [Release Notes](samples/release-notes-sample.md) | Version release notes, including a breaking change and a known issue | Release documentation, prioritizing what matters most |
-| [Architecture Overview](samples/architecture-overview-sample.md) | High-level architecture and workflow for a fictional EDA verification platform | System-level explanation, component diagrams, audience-appropriate depth |
-| [DITA Map & Online Help Structure](samples/dita-map-and-olh-sample.md) | What a DITA map contains and how the same topics become online help | DITA XML, Oxygen XML Author, content reuse |
-| [Markdown Style Guide](samples/markdown-style-guide-sample.md) | Docs-as-code writing conventions for a team moving into Markdown and Git | Docs-as-code, Markdown, content governance |
-| [DITA Topic Types](samples/dita-topic-types-sample.md) | The same subject split across concept, task, and reference topics | DITA XML, structured authoring, content reuse |
-| [Prompt & Response Evaluation Guidelines](samples/prompt-response-evaluation-guidelines-sample.md) | Evaluation workflow for scoring AI assistant responses | AI/LLM documentation, evaluation criteria design |
-| [Writing Prompts Across Personas](samples/prompt-writing-personas-sample.md) | Prompt-writing techniques and personas for AI training data | Prompt engineering, persona-based writing |
+| Sample | Description |
+|---|---|
+| [Command Reference Manual](samples/command-reference-manual-sample.md) | Command reference manual sample |
+| [API Documentation](samples/api-documentation-sample.md) | REST API reference sample |
+| [Maintenance Procedure](samples/asml-maintenance-procedures-sample.md) | Installation procedure sample |
+| [User Guide](samples/user-guide-sample.md) | User guide sample |
+| [Release Notes](samples/release-notes-sample.md) | Release notes sample |
+| [Markdown Style Guide](samples/markdown-style-guide-sample.md) | Markdown rules |
+| [DITA Topic Types](samples/dita-topic-types-sample.md) | Dita topics |
 
 ---
 
