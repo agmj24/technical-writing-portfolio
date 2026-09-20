@@ -13,13 +13,13 @@ This document is protected by copyright. Unauthorized reproduction or distributi
 
 This Release Notes document includes the following sections to help you understand the changes in this release of **Tool Name**:
 
-- New Features and Enhancements  
+- New Features, Enhancements, and Bugs  
 - Known Issues  
 - Resolved Bugs  
 
 ---
 
-## New Features and Enhancements
+## New Features, Enhancements, and Bugs
 
 The product includes the following new features and enhancements in this release:
 
