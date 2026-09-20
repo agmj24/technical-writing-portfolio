@@ -160,7 +160,7 @@ Keep tables simple. Use them only for structured data.
 ## Images
 
 ```markdown
-<image-card alt="Alt text" src="./images/diagram.png" ></image-card>
+![Alt text](./images/diagram.png)
 ```
 
 Always provide meaningful alt text.
