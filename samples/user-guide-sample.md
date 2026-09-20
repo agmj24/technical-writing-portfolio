@@ -1,4 +1,4 @@
-# VTran Design Check Tool — User Guide
+# VTran Design Check Tool User Guide
 
 **Document ID:** UG-VT-001  
 **Version:** 1.0  
@@ -102,5 +102,3 @@ When the check completes, open the results page to view:
 - VTran Release Notes  
 
 ---
-
-**End of Document**
