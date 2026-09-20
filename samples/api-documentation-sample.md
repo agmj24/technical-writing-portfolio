@@ -1,131 +1,207 @@
-# API Documentation (Sanitized Sample)
+# VTran Design Check API
 
-> Everything below describes a fictional API — `DRC Check Service` — built to show how I structure and write API documentation. No real endpoints, product names, or customer data are used.
+**Document ID:** API-VT-001  
+**Version:** 1.0  
+**Status:** Portfolio Sample  
+**Last Updated:** June 2026
 
-## A note before you read this
+---
 
-I put this together the way I'd actually approach a new API doc set at work: start with what a developer needs before they touch a single endpoint, then get into the reference detail. A lot of API docs jump straight to endpoint tables and skip the "why would I call this" part, which is usually where people actually get stuck.
+## Purpose
 
-## Overview
+This document describes the REST API for the **VTran Design Check Service**.
 
-The DRC Check Service lets you submit a design file for a design rule check (DRC) and retrieve the results programmatically, instead of running the check through the desktop application. It's meant for teams who want to fold DRC checks into an automated build or CI pipeline.
+The API allows developers to submit design files for automated structural checks and retrieve the results programmatically. It is intended for teams that want to integrate design checks into automated development and validation pipelines.
 
-Base URL:
-```
-https://api.example-eda.com/v1
+---
+
+## Base URL
+
+```text
+https://api.vtran-example.com/v1
 ```
 
 All requests and responses use JSON.
 
+---
+
 ## Authentication
 
-Every request needs an API key, sent as a header:
+All API requests require a Bearer token.
 
-```
-Authorization: Bearer <your_api_key>
-```
+**Example header:**
 
-You can generate a key from your account settings page. Keys don't expire, but you can revoke and regenerate them at any time — if a key is compromised, revoke it immediately rather than waiting for a scheduled rotation.
-
-## Endpoints
-
-### Submit a DRC Job
-
-```
-POST /drc-jobs
+```http
+Authorization: Bearer YOUR_ACCESS_TOKEN
 ```
 
-Submits a design file for checking. This is asynchronous — the call returns a job ID right away, and the check itself runs in the background (larger designs can take several minutes).
+You can generate an access token from the developer portal under **Account → API Keys**.
 
-**Request body**
+---
 
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `design_file_url` | string | Yes | A signed URL pointing to the design file. |
-| `ruleset` | string | No | Rule set to apply. Defaults to `standard`. |
-| `callback_url` | string | No | If provided, we'll POST the results here when the job finishes instead of you having to poll. |
+## Common Request Headers
 
-**Example request**
+| Header          | Required | Description                                                          |
+| --------------- | -------- | -------------------------------------------------------------------- |
+| `Authorization` | Yes      | Bearer access token used to authenticate the request.                |
+| `Content-Type`  | Yes      | Media type of the request body. Use `application/json`.              |
+| `Accept`        | No       | Media type expected in the response. Defaults to `application/json`. |
+
+---
+
+# Endpoints
+
+## 1. Submit a Design Check
+
+**POST** `/checks`
+
+Sends a design file for checking. The check runs asynchronously. The response returns a `check_id` that you can use to track the check.
+
+### Request Body
+
+| Field             | Type   | Required | Description                                                                                         |
+| ----------------- | ------ | -------- | --------------------------------------------------------------------------------------------------- |
+| `design_file_url` | string | Yes      | URL of the design file to be checked.                                                               |
+| `ruleset`         | string | No       | Rule set to apply. Defaults to `standard`.                                                          |
+| `severity`        | string | No       | Minimum severity to report. Valid values are `info`, `warning`, and `error`. Defaults to `warning`. |
+
+### Example Request
 
 ```bash
-curl -X POST https://api.example-eda.com/v1/drc-jobs \
-  -H "Authorization: Bearer YOUR_API_KEY" \
+curl -X POST https://api.vtran-example.com/v1/checks \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "design_file_url": "https://storage.example.com/designs/top_module.def",
-    "ruleset": "strict"
+    "ruleset": "strict",
+    "severity": "error"
   }'
 ```
 
-**Example response**
+### Success Response
+
+**202 Accepted**
 
 ```json
 {
-  "job_id": "drc_8f2a1c",
+  "check_id": "chk_9f3a2b",
   "status": "queued",
-  "submitted_at": "2026-03-14T09:12:00Z"
+  "submitted_at": "2026-06-15T10:30:00Z"
 }
 ```
 
-### Get Job Status / Results
+| Field          | Type   | Description                                 |
+| -------------- | ------ | ------------------------------------------- |
+| `check_id`     | string | Unique ID assigned to the design check.     |
+| `status`       | string | Current status of the check.                |
+| `submitted_at` | string | Date and time when the check was submitted. |
 
+The check runs in the background. Use the `check_id` with the **Get Check Status** endpoint to check its progress.
+
+---
+
+## 2. Get Check Status
+
+**GET** `/checks/{check_id}`
+
+Returns the current status of a design check.
+
+### Path Parameter
+
+| Parameter  | Type   | Required | Description             |
+| ---------- | ------ | -------- | ----------------------- |
+| `check_id` | string | Yes      | ID of the design check. |
+
+### Example Request
+
+```bash
+curl https://api.vtran-example.com/v1/checks/chk_9f3a2b \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Accept: application/json"
 ```
-GET /drc-jobs/{job_id}
-```
 
-Returns the current status of a job. Once `status` is `completed`, the response includes a `results` object with the violation summary.
+### Success Response
 
-**Example response (completed job)**
+**200 OK**
 
 ```json
 {
-  "job_id": "drc_8f2a1c",
+  "check_id": "chk_9f3a2b",
   "status": "completed",
-  "results": {
-    "violations": 3,
-    "severity_breakdown": {
-      "error": 1,
-      "warning": 2
-    },
-    "report_url": "https://api.example-eda.com/v1/drc-jobs/drc_8f2a1c/report"
+  "submitted_at": "2026-06-15T10:30:00Z",
+  "completed_at": "2026-06-15T10:34:18Z"
+}
+```
+
+### Status Values
+
+| Status      | Description                                           |
+| ----------- | ----------------------------------------------------- |
+| `queued`    | The check has been submitted and is waiting to start. |
+| `running`   | The design is currently being checked.                |
+| `completed` | The check has finished successfully.                  |
+| `failed`    | The check could not be completed.                     |
+
+Once the status is `completed`, the results are available for retrieval.
+
+---
+
+## Error Responses
+
+The API returns an error when a request cannot be completed.
+
+### Example Error Response
+
+**400 Bad Request**
+
+```json
+{
+  "error": {
+    "code": "INVALID_REQUEST",
+    "message": "The design_file_url field is required."
   }
 }
 ```
 
-### Job Status Values
+### Common Errors
 
-| Status | Meaning |
-|---|---|
-| `queued` | Job received, waiting to run. |
-| `running` | Check is in progress. |
-| `completed` | Finished — see `results`. |
-| `failed` | Job could not complete. Check `error_message` in the response. |
+| HTTP Status | Error Code        | Description                                                       |
+| ----------- | ----------------- | ----------------------------------------------------------------- |
+| `400`       | `INVALID_REQUEST` | The request is missing a required field or contains invalid data. |
+| `401`       | `UNAUTHORIZED`    | The access token is missing or invalid.                           |
+| `404`       | `NOT_FOUND`       | The specified check could not be found.                           |
+| `500`       | `INTERNAL_ERROR`  | An unexpected error occurred while processing the request.        |
 
-## Error Handling
+---
 
-The API uses standard HTTP status codes. A 4xx means something's wrong with the request; a 5xx means something went wrong on our end.
+## Example Workflow
 
-| Code | Meaning | Typical Cause |
-|---|---|---|
-| 400 | Bad Request | Missing or malformed field in the request body |
-| 401 | Unauthorized | Missing or invalid API key |
-| 404 | Not Found | Job ID doesn't exist, or belongs to a different account |
-| 429 | Too Many Requests | Rate limit exceeded — see below |
-| 500 | Internal Server Error | Something failed on our side; safe to retry |
+A typical design check follows these steps:
 
-Error responses include a message you can actually act on:
+1. Submit a design file using `POST /checks`.
+2. Save the `check_id` returned in the response.
+3. Use `GET /checks/{check_id}` to check the status.
+4. When the status is `completed`, retrieve the check results.
 
-```json
-{
-  "error": "invalid_ruleset",
-  "message": "The ruleset 'ultra-strict' does not exist. Available rulesets: standard, strict, custom."
-}
+```text
+Submit Design
+      ↓
+Receive check_id
+      ↓
+Check Status
+      ↓
+Completed?
+      ↓
+Retrieve Results
 ```
 
-## Rate Limits
+---
 
-100 requests per minute per API key. If you go over that, you'll get a 429 with a `Retry-After` header telling you how many seconds to wait. For bulk submissions, it's worth batching design files into fewer, larger jobs rather than firing off one request per file.
+## API Summary
 
-## Why I structured it this way
+| Operation             | Method | Endpoint             |
+| --------------------- | ------ | -------------------- |
+| Submit a design check | `POST` | `/checks`            |
+| Get check status      | `GET`  | `/checks/{check_id}` |
 
-Async job endpoints are the part people usually mess up in docs — you submit something, get back an ID, and then have to go figure out on your own how to check on it. I always document the submit and status-check calls together, right next to each other, with a note about polling vs. callbacks, because that's the actual workflow a developer follows. Splitting the two into separate, distant sections in the doc structure just makes people flip back and forth.
+---
