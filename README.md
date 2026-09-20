@@ -38,7 +38,7 @@ The samples show how I approach documentation planning, information architecture
 
 | Sample | Description | Skills Demonstrated |
 |---|---|---|
-| [Command Reference Manual](samples/command-reference-manual-sample.md) | Full command reference for a fictional EDA verification tool | Command syntax documentation, topic-based structure |
+| [Command Reference Manual](samples/command-reference-manual-sample.md) (troff source) | Full command reference for a fictional EDA verification tool | Command syntax documentation, topic-based structure |
 | [API Documentation](samples/api-documentation-sample.md) | REST API reference for a fictional design-check service | Developer-focused writing, async workflows, error handling |
 | [Equipment Maintenance Procedures](samples/asml-maintenance-procedures-sample.md) | Routing, installation, and de-installation for a fictional hardware module | Procedural and safety-critical writing, hardware documentation |
 | [User Guide](samples/user-guide-sample.md) | Getting-started guide for the same fictional verification tool | Onboarding content, task-based writing |
